@@ -4,6 +4,19 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+#banner {
+    width: 100%;
+    height: 200px;
+    background-image: url("banner.jpg");
+}
+
+.navbar-custom {
+    background-color: #3d3d3d;
+}
+
+
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -1087,20 +1100,6 @@ body {
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
-}
-#banner {
-	background-image: url("http://lcsee.statler.wvu.edu/files/d862a310-68cc-47a6-912a-db389d828c98/1720x580?cb=1452174090");
-	height: 200px;
-	background-size: 100%;
-}
-.navbar-custom {
-	background-color: #000000;
-	color: #337ab7;
-}
-.btn-custom {
-	color:#fff;
-	background-color: #ff4f4f;
-	border-color: #2e6da4;
 }
 input,
 button,
