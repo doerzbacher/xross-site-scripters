@@ -22,7 +22,7 @@
                 <a class="navbar-brand" href="frontPage.html">MUVE</a>
                 <ul class="nav navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="poll1.html">Polls<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="https://google.com/">Polls<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="candidates.html">Candidates</a>
@@ -40,54 +40,54 @@
             </div>
             <hr>
             <div class="row" id="polls">
-                <form action="#" method="post">
+                <form action="lab5procPoll.php" method="post">
                     <div class="col-md-3">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Ballot</h3>
                             </div>
                             <div class="panel-body">
-                                <h4>Presidents</h4>
+                                <h4>Candidates</h4>
                                 <ul class="list-group">
                                     <li class="list-group-item">
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" name="president">Clinton
+                                                <input type="radio" name="candidates[]" value="0">Clinton
                                             </label>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" name="president">Trump
+                                                <input type="radio" name="candidates[]" value="1">Trump
                                             </label>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" name="president">Stein
+                                                <input type="radio" name="candidates[]" value="2">Stein
                                             </label>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" name="president">Johnson
+                                                <input type="radio" name="candidates[]" value="3">Johnson
                                             </label>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" name="president">Other 
+                                                <input type="radio" name="candidates[]" value="4">Other
                                             </label>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                    </div><!--president vote--> 
+                    </div><!--president vote-->
                     <div class="col-md-3">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
@@ -99,21 +99,21 @@
                                     <li class="list-group-item">
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" name="teams">WVU
+                                                <input type="radio" name="teams[]">WVU
                                             </label>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" name="teams">Baylor
+                                                <input type="radio" name="teams[]">Baylor
                                             </label>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                    </div><!--football vote--> 
+                    </div><!--football vote-->
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
             </div><!--polls-->
