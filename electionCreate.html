@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <head>
+        <title>MUVE</title>
+        <script>
+            var i = 0;
+            function makeRadioButton() {
+                var radio = document.createElement('input');
+                radio.type = "radio";
+                radio.value = "0";
+                radio.name = "entries[]";
+                return radio; 
+            }            
+
+            function makeTextBox() {
+                var text = document.createElement('input');
+                text.type = "text";
+                text.className = "form-control";
+                text.placeholder = "Leave blank for right in";
+                return text;
+            }
+
+            function makeDelButton(entryName) {
+                var button = document.createElement('button');
+                button.type = "button";
+                button.className = "btn btn-danger";
+                button.innerHTML = "x";
+                button.onclick = function() {
+                                    document.getElementById(entryName).remove();   
+                                 }
+                return button;
+            }
+    
+            function makeNewEntry() {
+                var list = document.getElementById('entries');
+                var entry = document.createElement('li');
+                var div = document.createElement('div');
+                var label = document.createElement('label');
+                var radio = makeRadioButton();
+                var text = makeTextBox();
+            
+                entry.className = "list-group-item";
+                entry.id = "entry"+i++;
+                var delButton = makeDelButton(entry.id);
+                div.className = "radio";
+                label.appendChild(radio);
+                label.appendChild(text);
+                label.appendChild(delButton);
+                div.appendChild(label);
+                entry.appendChild(div);
+                list.insertBefore(entry, document.getElementById("createButton"));
+            }
+        </script>
+    </head>
+    <style>
+        body {
+            font-family: "Raleway", sans-serif
+            padding-top: 5rem;
+        }
+        .top-words {
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+    </style>
+    <body>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="banner"></div>
+        <div>
+            <nav class="navbar navbar-fixed-top navbar-custom">
+                <a class="navbar-brand" href="frontPage.html">MUVE</a>
+                <ul class="nav navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="poll1.html">Polls<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="candidates.html">Candidates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Archives</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="electionCreate.html">Create Election</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="top-words">
+                <h1>Morgantown University Voting Environment</h1>
+                <p class="lead">Put something relevant here.<br> More relevant than what is currently here.</p>
+            </div>
+            <hr>
+            <div class="row" id="creation">
+                <form action="#" method="post">
+                    <div class="col-md-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <label for="ballotTitle">Enter a Title</label>
+                                <input type="text" id="ballotTitle" class="form-control" placeholder="Title of Ballot" name="entries[]">
+                            </div>
+                            <div class="panel-body">
+                                <ul class="list-group" id="entries">
+                                    <li class="list-group-item">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" value="0" name="entries[]"><input type="text" class="form-control" placeholder="Leave blank for write in" name="entries[]">
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item" id="createButton">
+                                        <button type="button" class="btn btn-info" onclick="makeNewEntry()">Add entry</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>                
+                </form>
+            </div><!--creation-->
+            <hr>
+        </div><!-- /.container -->
+    </body>
+</html>
