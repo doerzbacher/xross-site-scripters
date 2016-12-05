@@ -19,10 +19,50 @@
 	<body>
 	<?php
 
-		$numEntries = count($_POST["entries"]);
-		echo("{$numEntries} <br> ");
-	    echo "entry test: ", "{$_POST["entries"][1][2]} <br> " ;
-		echo("{$_POST["entries"][$numEntries]} <br> ");
+		$entries = $_POST["entries"];
+		$numEntries = count($entries[0]);
+		echo("numEntries: {$numEntries} <br><br> ");
+		
+		$counter = 0;
+		foreach($_POST["entries"] as $race)
+		{
+			foreach($race as $entry)
+			{
+				echo "{$counter}: ", "{$entry}", "<br>";
+				$counter = $counter + 1;
+			}
+		}
+		
+		echo "counter: ", $counter, "<br>";
+		
+		//need to get election title from form
+		$electionTitle = "TestElection2";
+		
+//write election to active elections file
+		$electionsContent = unserialize(file_get_contents("activeElections.txt"));
+        if(!is_array($electionsContent))
+        {
+			$electionsContent = array("elections"=>$activeElections);
+		}
+		$electionsContent["elections"][count($electionsContent["elections"])] = $electionTitle;	
+		echo "Number of activeElections: ", count($electionsContent["elections"]), "<br><br>";
+		foreach($electionsContent["elections"] as $election)
+		{
+			echo "Election Name: ", $election, "<br>";
+		}		
+		$activeElectionsFile = fopen("activeElections.txt","w+") or die("No elections file");
+		echo serialize($electionsContent), "<br>";
+		fwrite($activeElectionsFile, serialize($electionsContent));
+		fclose($activeElectionsFile);
+
+//write election ballot file
+		echo "File Name: ", "{$electionTitle}", "<br> <br>";
+		$electionFile = fopen("{$electionTitle}.ballot","w");
+		echo serialize($entries), "<br>";
+		fwrite($electionFile, serialize($entries[0]));
+		
+		fclose($electionFile);
+
     ?>
 	<br><br>
 		<p><a class="btn btn-primary btn-lg" href="frontPage.html" role="button">Return to the home page</a><p>
