@@ -39,6 +39,8 @@
     
             function makeNewEntry(q, k) {
                 k--;
+                var a = document.createTextNode(q);
+                document.body.appendChild(a);
                 var list = document.getElementById(q);
                 var entry = document.createElement('li');
                 var div = document.createElement('div');
@@ -96,7 +98,7 @@
                 button.type = "button";
                 button.className = "btn btn-info";
                 button.onclick = function() {
-                                    makeNewEntry("entries" + j, j);
+                                    makeNewEntry("entries" + (j-1), j);
                                  };
                 button.innerHTML = "Add entry";
 
