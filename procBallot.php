@@ -18,16 +18,27 @@
 
 	<body>
 	<?php
-        if(empty($_POST["candidates"]))
-        {
-            echo("No input, ignoring");
-            header("Location: frontPage.html"); 
-            exit();
-        }
-		//need to get election title from form
-        $file = fopen("TestElection2.txt","a") or die("Oh No! Cannot open file!");
 
-        fwrite($file, serialize($_POST["options"]));
+		//need to get election title from form
+		$electionTitle = str_replace(" ", "-", $_POST["selectedElection"]);
+		
+		$fileContent = unserialize(file_get_contents("election-data/results/{$electionTitle}.results"));
+		if(!is_array($fileContent))
+		{
+			$arr = array();
+			$fileContent = array("completedBallots"=>$arr);
+		}
+		
+		$fileContent["completedBallots"][count($fileContent["completedBallots"])] = serialize($_POST);
+		
+		foreach($fileContent["completedBallots"] as $completedBallot)
+		{
+			echo serialize($completedBallot), "<br>";
+		}
+		
+        $file = fopen("election-data/results/{$electionTitle}.results","w") or die("Oh No! Cannot open file!");
+
+        fwrite($file, serialize($fileContent));
         fclose($file);
         echo("wrote array");
 

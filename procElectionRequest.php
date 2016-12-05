@@ -68,7 +68,7 @@
 					}
 					echo "</ul></div></div></div>";
 				}
-				echo "<button type='submit' class='btn btn-default'>Submit</button>";
+				echo "<button type='submit' class='btn btn-default' name='selectedElection' value='{$electionContent["title"]}'>Submit</button>";
 				echo "</form></div><hr></div>";
 			}
 		}
