@@ -22,7 +22,7 @@
         if(empty($_POST["candidates"]))
         {
             echo("No input, ignoring");
-            header("Location: frontPage.html"); /*http://stackoverflow.com/questions/2112373/php-page-redirect*/
+            header("Location: frontPage.html"); 
             exit();
         }
         $presidentVote=$_POST["candidates"][0];
