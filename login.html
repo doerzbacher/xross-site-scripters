@@ -4,6 +4,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <head>
         <title>MUVE</title>
+
+        <script>
+            function setUsername() {
+                var username = document.getElementById('username');
+                localStorage.setItem("username", username.value);
+                var get = localStorage.getItem("username");    
+            }
+        </script>
     </head>
     <style>
         body {
@@ -57,7 +65,7 @@
                                 <ul class="list-group">
                                     <li class="list-group-item">
                                         <label>
-                                            <input type="text" class="form-control" placeholder="username" name="username" required>Username
+                                            <input type="text" class="form-control" placeholder="username" name="username" id="username" required>Username
                                         </label>
                                     </li>
                                     <li class="list-group-item">
@@ -67,7 +75,7 @@
                                     </li>
                                 </ul>
                                 <div class="text-right">
-                                    <button type="submit" class="btn btn-info">Login</button>
+                                    <button type="button" onclick="setUsername()" class="btn btn-info">Login</button>
                                 </div>
                             </div>
                         </div>
