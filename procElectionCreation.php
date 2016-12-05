@@ -21,6 +21,7 @@
 
 		$numEntries = count($_POST["entries"]);
 		echo("{$numEntries} <br> ");
+	    echo "entry test: ", "{$_POST["entries"][1][2]} <br> " ;
 		echo("{$_POST["entries"][$numEntries]} <br> ");
     ?>
 	<br><br>
