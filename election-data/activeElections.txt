@@ -1,1 +1,1 @@
-a:1:{s:9:"elections";a:3:{i:0;s:13:"Test-Election";i:1;s:15:"Test-Election-2";i:2;s:35:"Student-Body-Represenative-Election";}}
+a:1:{s:9:"elections";a:5:{i:0;s:13:"Test-Election";i:1;s:15:"Test-Election-2";i:2;s:35:"Student-Body-Represenative-Election";i:3;s:10:"Presidents";i:4;s:7:"as;dfsd";}}
