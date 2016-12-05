@@ -38,7 +38,6 @@
             }
     
             function makeNewEntry(q, k) {
-                k--;
                 var a = document.createTextNode(q);
                 document.body.appendChild(a);
                 var list = document.getElementById(q);
@@ -62,6 +61,7 @@
             }
             
             function makeNewQuestion() {
+                var loc = j;
                 var space = document.getElementById('questionsSpace');
                 var panelPrimary = document.createElement('div'); 
                 panelPrimary.className = "panel panel-primary";
@@ -99,7 +99,7 @@
                 button.type = "button";
                 button.className = "btn btn-info";
                 button.onclick = function() {
-                                    makeNewEntry("entries" + (j-1), j);
+                                    makeNewEntry("entries" + (loc), loc);
                                  };
                 button.innerHTML = "Add entry";
 
