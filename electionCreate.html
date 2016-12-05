@@ -73,7 +73,7 @@
                 titleText.id = "ballotTitle"+j;
                 titleText.className = "form-control";
                 titleText.placeholder = "Title";
-                titleText.name = "questions["+j+"][]";
+                titleText.name = "entries["+j+"][0]";
                 var panelBody = document.createElement('div');
                 panelBody.className = "panel-body";
                 var list = document.createElement('ul');
@@ -88,7 +88,7 @@
                 radioIn.type = "text";
                 radioIn.className = "form-control";
                 radioIn.placeholder = "Leave blank for write-in";
-                radioIn.name = "questions["+j+"][1]"; 
+                radioIn.name = "entries["+j+"][1]"; 
                 var listItem2 = document.createElement('li');
                 listItem2.className = "list-group-item";
                 listItem2.id = "createButton" + j;
