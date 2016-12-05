@@ -37,9 +37,8 @@
                 return button;
             }
     
-            function makeNewEntry(q, i) {
-                var a = document.createTextNode(q);
-                document.body.appendChild(a);
+            function makeNewEntry(q, k) {
+                k--;
                 var list = document.getElementById(q);
                 var entry = document.createElement('li');
                 var div = document.createElement('div');
@@ -56,7 +55,8 @@
                 label.appendChild(delButton);
                 div.appendChild(label);
                 entry.appendChild(div);
-                list.insertBefore(entry, document.getElementById("createButton" + i));
+                entry.name = "entries[k][i]";
+                list.insertBefore(entry, document.getElementById("createButton" + k));
             }
             
             function makeNewQuestion() {
@@ -113,6 +113,7 @@
                 panelPrimary.appendChild(panelHead);
                 panelPrimary.appendChild(panelBody);
                 space.insertBefore(panelPrimary, document.getElementById("questionButton"));
+                j++;
             }
         </script>
     </head>
@@ -159,14 +160,14 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <label for="ballotTitle">Enter a Title</label>
-                                <input type="text" id="ballotTitle" class="form-control" placeholder="Title" name="questions[0][]">
+                                <input type="text" id="ballotTitle" class="form-control" placeholder="Title" name="entries[0][0]">
                             </div>
                             <div class="panel-body">
                                 <ul class="list-group" id="entries">
                                     <li class="list-group-item">
                                         <div class="radio">
                                             <label>
-                                                <input type="text" class="form-control" placeholder="Leave blank for write in" name="entries[0][]">
+                                                <input type="text" class="form-control" placeholder="Leave blank for write in" name="entries[0][1]">
                                             </label>
                                         </div>
                                     </li>
