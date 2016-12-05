@@ -119,11 +119,6 @@
                 j++;
             }
 
-            function test() {
-                var a = localStorage.getItem("username");
-                var b = document.createTextNode(a);
-                document.body.appendChild(b);
-            }
         </script>
     </head>
     <style>
@@ -136,7 +131,7 @@
             text-align: center;
         }
     </style>
-    <body onload="form1.reset(); test();">
+    <body onload="form1.reset();">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="banner"></div>
         <div>
             <nav class="navbar navbar-fixed-top navbar-custom">
