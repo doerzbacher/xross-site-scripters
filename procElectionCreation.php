@@ -23,14 +23,17 @@
 		$numEntries = count($entries[0]);
 		echo("numEntries: {$numEntries} <br><br> ");
 		
+		echo "Entry Test: ", $_POST["entries"][1][0], "<br>";
+		
+		
 		$counter = 0;
 		foreach($_POST["entries"] as $race)
 		{
 			foreach($race as $entry)
 			{
 				echo "{$counter}: ", "{$entry}", "<br>";
-				$counter = $counter + 1;
 			}
+			$counter = $counter + 1;
 		}
 		
 		echo "counter: ", $counter, "<br>";
