@@ -76,6 +76,7 @@
                 titleText.className = "form-control";
                 titleText.placeholder = "Title";
                 titleText.name = "entries["+j+"][0]";
+                titleText.required = true;
                 var panelBody = document.createElement('div');
                 panelBody.className = "panel-body";
                 var list = document.createElement('ul');
@@ -129,7 +130,7 @@
             text-align: center;
         }
     </style>
-    <body>
+    <body onload="form1.reset();">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="banner"></div>
         <div>
             <nav class="navbar navbar-fixed-top navbar-custom">
@@ -151,11 +152,11 @@
             </nav>
         </div>
         <div class="container">
-            <form action="procElectionCreation.php" method="post">
+            <form action="procElectionCreation.php" method="post" id="form1">
                 <div class="top-words">
                     <h1>Morgantown University Voting Environment</h1>
-                    <input type="text" id="electTitle" class="form-control" placeholder="Enter Election name here" name="title"><br>
-					<input type="text" id="electDescription" class="form-control" placeholder="Enter Election description here" name="electDescription">
+                    <input type="text" id="electTitle" class="form-control" placeholder="Enter Election name here" name="title" required><br>
+					<input type="text" id="electDescription" class="form-control" placeholder="Enter Election description here" name="electDescription" required>
                 </div>
                 <hr>
                 <div class="row" id="creation">
@@ -163,7 +164,7 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <label for="ballotTitle">Enter a Title</label>
-                                <input type="text" id="ballotTitle" class="form-control" placeholder="Title" name="entries[0][0]">
+                                <input type="text" id="ballotTitle" class="form-control" placeholder="Title" name="entries[0][0]" required>
                             </div>
                             <div class="panel-body">
                                 <ul class="list-group" id="entries">
