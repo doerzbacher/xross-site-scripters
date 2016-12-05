@@ -39,10 +39,10 @@
 		echo "counter: ", $counter, "<br>";
 		
 		//need to get election title from form
-		$electionTitle = "TestElection2";
+		$electionTitle = str_replace(" ", "-", $_POST["title"]);
 		
 //write election to active elections file
-		$electionsContent = unserialize(file_get_contents("activeElections.txt"));
+		$electionsContent = unserialize(file_get_contents("election-data/activeElections.txt"));
         if(!is_array($electionsContent))
         {
 			$electionsContent = array("elections"=>$activeElections);
@@ -53,16 +53,17 @@
 		{
 			echo "Election Name: ", $election, "<br>";
 		}		
-		$activeElectionsFile = fopen("activeElections.txt","w+") or die("No elections file");
+		$activeElectionsFile = fopen("election-data/activeElections.txt","w+") or die("No elections file");
 		echo serialize($electionsContent), "<br>";
 		fwrite($activeElectionsFile, serialize($electionsContent));
 		fclose($activeElectionsFile);
 
 //write election ballot file
 		echo "File Name: ", "{$electionTitle}", "<br> <br>";
-		$electionFile = fopen("{$electionTitle}.ballot","w");
+		$electionFile = fopen("election-data/{$electionTitle}.ballot","w");
+		echo serialize($_POST), "<br>";
 		echo serialize($entries), "<br>";
-		fwrite($electionFile, serialize($entries[0]));
+		fwrite($electionFile, serialize($_POST));
 		
 		fclose($electionFile);
 

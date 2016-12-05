@@ -22,7 +22,7 @@
 				<a class="navbar-brand" href="frontPage.html">MUVE</a>
 				<ul class="nav navbar-nav">
 					<li class="nav-item active">
-						<a class="nav-link" href="poll1.html">Elections<span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="elections.php">Elections<span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="candidates.html">Candidates</a>
@@ -47,24 +47,43 @@
 				<p class="lead">Put something relevant here.<br> More relevant than what is currently here.</p>
 			</div>
 			<hr>
-			<div class="row" id="polls">
-				<div class="col-md-4">
-					<h2>Election 1</h2>
-					<p>This is a poll that you can take if you are Electrical Engineering.  You will be voting on whether or not the department should cut spending on soldering equipment and start spending money on bread boards.</p>
-					<p><a class="btn btn-primary btn-lg" href="poll1.html" role="button">Vote &raquo;</a></p>
-				</div>
-				<div class="col-md-4">
-					<h2>Election 2</h2>
-					<p>1) Personal space 2) Personal space 3) Stay out of my personal space 4) Keep away from my personal space 5) Get outta dat personal space 6) Stay away from my personal space 7) Keep away from dat personal space 8) Personal space 9) Personal space</p>
-					<p><a class="btn btn-primary btn-lg" href="#" role="button">Go into the personal space &raquo;</a></p>	
-				</div>
-				<div class="col-md-4">
-					<h2>Election 3</h2>
-					<p>I dont know anymore, but you get the point.  This is where the description of the polls would go and describe what is being voted on, button color can change based on whether they can vote on it or not.</p>
-					<p><a class="btn btn-primary btn-lg disabled" href="#" role="button">Cannot Vote &raquo;</a></p>	
-				</div>
-			</div><!--polls-->
-			<hr>
+			
+			<?php
+				if(is_file("election-data/activeElections.txt"))
+				{
+					$activeElections = unserialize(file_get_contents("election-data/activeElections.txt"));
+				
+					if(is_array($activeElections))
+					{
+						
+/**						echo "<div class='col-md-3'>"
+						echo "<div class='panel panel-primary'>"
+						echo "<div class='panel-body'>"
+						echo "<ul class='list-group'>"  **/
+						foreach($activeElections["elections"] as $election)
+						{
+							if(is_file("election-data/{$election}.ballot"))
+							{
+								$electionBallot = unserialize(file_get_contents("election-data/{$election}.ballot"));
+								if(is_array($electionBallot))
+								{
+									echo "<form action='procElectionRequest.php' method='post'>";
+									echo "<li class='list-group-item'>";
+									echo "<p>{$electionBallot['electDescription']}</p>";
+									echo "<button type='submit' class='btn btn-primary btn-lg' name='selectedElection' value='{$electionBallot["title"]}'>Go to {$electionBallot["title"]} page</button>";
+									echo "</li> </form>";
+								}
+							}
+						}
+									
+					} else {
+						echo "<p>There are currently no active elections.</p><br>";
+					}
+				} else {
+					echo "<p>There are currently no active elections.</p><br>";
+				}
+			?>
+			
 		</div><!-- /.container -->
 	</body>
 </html>
