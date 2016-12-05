@@ -6,6 +6,7 @@
         <title>MUVE</title>
         <script>
             var i = 0;
+            var j = 1;
             function makeRadioButton() {
                 /**
 				var radio = document.createElement('input');
@@ -36,8 +37,10 @@
                 return button;
             }
     
-            function makeNewEntry() {
-                var list = document.getElementById('entries');
+            function makeNewEntry(q, i) {
+                var a = document.createTextNode(q);
+                document.body.appendChild(a);
+                var list = document.getElementById(q);
                 var entry = document.createElement('li');
                 var div = document.createElement('div');
                 var label = document.createElement('label');
@@ -53,7 +56,63 @@
                 label.appendChild(delButton);
                 div.appendChild(label);
                 entry.appendChild(div);
-                list.insertBefore(entry, document.getElementById("createButton"));
+                list.insertBefore(entry, document.getElementById("createButton" + i));
+            }
+            
+            function makeNewQuestion() {
+                var space = document.getElementById('questionsSpace');
+                var panelPrimary = document.createElement('div'); 
+                panelPrimary.className = "panel panel-primary";
+                var panelHead = document.createElement('div');
+                panelHead.className = "panel-heading";
+                var label = document.createElement('label');
+                label.htmlfor = "ballotTitle"+j;
+                label.innerHTML = "Enter a Title";
+                var titleText = document.createElement('input');
+                titleText.type = "text";
+                titleText.id = "ballotTitle"+j;
+                titleText.className = "form-control";
+                titleText.placeholder = "Title";
+                titleText.name = "questions["+j+"][]";
+                var panelBody = document.createElement('div');
+                panelBody.className = "panel-body";
+                var list = document.createElement('ul');
+                list.className = "list-group";
+                list.id = "entries" + j;
+                var listItem1 = document.createElement('li');
+                listItem1.className = "list-group-item";
+                var radio = document.createElement('div');
+                radio.className = "radio";
+                var labelP = document.createElement('label');
+                var radioIn = document.createElement('input');
+                radioIn.type = "text";
+                radioIn.className = "form-control";
+                radioIn.placeholder = "Leave blank for write-in";
+                radioIn.name = "questions["+j+"][1]"; 
+                var listItem2 = document.createElement('li');
+                listItem2.className = "list-group-item";
+                listItem2.id = "createButton" + j;
+                var button = document.createElement('button');
+                button.type = "button";
+                button.className = "btn btn-info";
+                button.onclick = function() {
+                                    makeNewEntry("entries" + j, j);
+                                 };
+                button.innerHTML = "Add entry";
+
+                panelHead.appendChild(label);
+                panelHead.appendChild(titleText);
+                labelP.appendChild(radioIn);
+                radio.appendChild(labelP);
+                listItem1.appendChild(radio);
+                list.appendChild(listItem1);
+                listItem2.appendChild(button);
+                list.appendChild(listItem2);
+                panelBody.appendChild(list);
+                
+                panelPrimary.appendChild(panelHead);
+                panelPrimary.appendChild(panelBody);
+                space.insertBefore(panelPrimary, document.getElementById("questionButton"));
             }
         </script>
     </head>
@@ -89,39 +148,42 @@
             </nav>
         </div>
         <div class="container">
-            <div class="top-words">
-                <h1>Morgantown University Voting Environment</h1>
-                <p class="lead">Put something relevant here.<br> More relevant than what is currently here.</p>
-            </div>
-            <hr>
-            <div class="row" id="creation">
-                <form action="procElectionCreation.php" method="post">
-                    <div class="col-md-4">
+            <form action="procElectionCreation.php" method="post">
+                <div class="top-words">
+                    <h1>Morgantown University Voting Environment</h1>
+                    <p class="lead">Put something relevant here.<br> More relevant than what is currently here.</p>
+                </div>
+                <hr>
+                <div class="row" id="creation">
+                    <div class="col-md-4 col-md-offset-4" id="questionsSpace">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <label for="ballotTitle">Enter a Title</label>
-                                <input type="text" id="ballotTitle" class="form-control" placeholder="Title of Ballot" name="entries[0][]">
+                                <input type="text" id="ballotTitle" class="form-control" placeholder="Title" name="questions[0][]">
                             </div>
                             <div class="panel-body">
                                 <ul class="list-group" id="entries">
                                     <li class="list-group-item">
                                         <div class="radio">
                                             <label>
-                                                <input type="text" class="form-control" placeholder="Leave blank for write in" name="entries[0][1]">
+                                                <input type="text" class="form-control" placeholder="Leave blank for write in" name="questions[0][1]">
                                             </label>
                                         </div>
                                     </li>
-                                    <li class="list-group-item" id="createButton">
-                                        <button type="button" class="btn btn-info" onclick="makeNewEntry()">Add entry</button>
+                                    <li class="list-group-item" id="createButton0">
+                                        <button type="button" class="btn btn-info" onclick="makeNewEntry(&quot;entries&quot;, 1)">Add entry</button>
                                     </li>
                                 </ul>
                             </div>
                         </div>
+                        <button type="button" class="btn btn-info" onclick="makeNewQuestion()" id="questionButton">Add question</button>
                     </div>
-					<button type="submit" class="btn btn-default">Submit</button>					
-                </form>
-            </div><!--creation-->
-            <hr>
+                </div><!--creation-->
+                <hr>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-lg btn-default" style="margin-bottom: 5em">Submit</button>					
+                </div>
+            </form>
         </div><!-- /.container -->
     </body>
 </html>
