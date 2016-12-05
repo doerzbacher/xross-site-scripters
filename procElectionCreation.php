@@ -19,8 +19,9 @@
 	<body>
 	<?php
 
-	    echo("{$_POST["entries"][0]}");
-
+		$numEntries = count($_POST["entries"]);
+		echo("{$numEntries} <br> ");
+		echo("{$_POST["entries"][$numEntries]} <br> ");
     ?>
 	<br><br>
 		<p><a class="btn btn-primary btn-lg" href="frontPage.html" role="button">Return to the home page</a><p>

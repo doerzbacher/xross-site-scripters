@@ -7,11 +7,13 @@
         <script>
             var i = 0;
             function makeRadioButton() {
-                var radio = document.createElement('input');
+                /**
+				var radio = document.createElement('input');
                 radio.type = "radio";
                 radio.value = "0";
                 radio.name = "entries[]";
                 return radio; 
+				**/ 
             }            
 
             function makeTextBox() {
@@ -19,6 +21,7 @@
                 text.type = "text";
                 text.className = "form-control";
                 text.placeholder = "Leave blank for right in";
+				//text.name = 
                 return text;
             }
 
@@ -38,14 +41,14 @@
                 var entry = document.createElement('li');
                 var div = document.createElement('div');
                 var label = document.createElement('label');
-                var radio = makeRadioButton();
+                //var radio = makeRadioButton();
                 var text = makeTextBox();
             
                 entry.className = "list-group-item";
                 entry.id = "entry"+i++;
                 var delButton = makeDelButton(entry.id);
                 div.className = "radio";
-                label.appendChild(radio);
+                //label.appendChild(radio);
                 label.appendChild(text);
                 label.appendChild(delButton);
                 div.appendChild(label);
@@ -97,14 +100,14 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <label for="ballotTitle">Enter a Title</label>
-                                <input type="text" id="ballotTitle" class="form-control" placeholder="Title of Ballot" name="entries[]">
+                                <input type="text" id="ballotTitle" class="form-control" placeholder="Title of Ballot" name="entries[0][]">
                             </div>
                             <div class="panel-body">
                                 <ul class="list-group" id="entries">
                                     <li class="list-group-item">
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" value="0" name="entries[]"><input type="text" class="form-control" placeholder="Leave blank for write in" name="entries[]">
+                                                <input type="text" class="form-control" placeholder="Leave blank for write in" name="entries[0][1]">
                                             </label>
                                         </div>
                                     </li>
