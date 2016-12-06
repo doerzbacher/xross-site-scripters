@@ -30,6 +30,7 @@
                     var EC = document.getElementById('EC');
                     closed.style = "display: none";
                     EC.style = "display: none";
+                    hideButtons();
                 }
                 else if (username === "EC" || username === "HSO") {
                     
