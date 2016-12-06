@@ -9,13 +9,7 @@
             function checkLoggedIn() {
                 var username = localStorage.getItem("username");
                 if (username === null) {
-
-                }
-                else if (username === "HSO" || username === "EC") {
-
-                }
-                else {
-                    window.location.href = "noPermission.html";
+                    window.location.href = "login.html";
                 }
             }
         </script>
