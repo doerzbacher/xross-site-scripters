@@ -74,5 +74,12 @@
 		fclose($resultsFile);
 		
     ?>
+	
+	<br><br>
+		<p><a class="btn btn-primary btn-lg" href="frontPage.html" role="button">Return to the home page</a><p>
+		<hr>
+        <p>
+
+        </p>
 	</body>
 </html>
