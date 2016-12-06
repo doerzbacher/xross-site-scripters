@@ -4,6 +4,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <head>
         <title>MUVE</title>
+        <script>
+            function setIdValue() {
+                var username = localStorage.getItem("username");
+                var box = document.getElementById('usernameBox');
+                box.value = username;
+            }
+        </script>
     </head>
     <style>
         body {
@@ -15,7 +22,7 @@
             text-align: center;
         }
     </style>
-    <body>
+    <body onload="setIdValue();">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="banner"></div>
         <div>
             <nav class="navbar navbar-fixed-top navbar-custom">
@@ -57,7 +64,7 @@
 					echo "<div class='col-md-3'> <div class='panel panel-primary'> <div class='panel-heading'>";
 					echo "<h3 class='panel-title'>{$electionContent["entries"][$raceIt][0]}</h3> </div>";
 					echo "<div class='panel-body'>";
-					echo "<ul class='list-group'>";
+					echo "<ul class='list-group'><li class='list-group-item'><div class='radio'><label><input type='text' class='form-control' name='studentid' id='usernameBox' readonly></label></div></li>";
 					for($entryIt=1; $entryIt<count($electionContent["entries"][$raceIt]); $entryIt++)
 					{
 						echo "<li class='list-group-item'><div class='radio'><label>";
