@@ -58,7 +58,7 @@
 				echo "<p class='lead'>{$electionContent["title"]}</p><br>";
 				echo "<p>{$electionContent["electDescription"]}</p> </div>";
 				echo "<hr> <div class='row' id='polls'>";
-				echo "<form action='procBallot.php' method='post'><label for='userID'>User ID</label><input type='text' class='form-control' id='userID' readonly> ";
+				echo "<form action='procBallot.php' method='post'><label for='userID'>User ID</label><input type='text' class='form-control' id='userID' readonly><br>";
 				for($raceIt=0; $raceIt<count($electionContent["entries"]); $raceIt++)
 				{
 					echo "<div class='col-md-3'><div class='panel panel-primary'> <div class='panel-heading'>";
