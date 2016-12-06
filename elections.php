@@ -69,6 +69,7 @@
 						echo "<div class='panel panel-primary'>"
 						echo "<div class='panel-body'>"
 						echo "<ul class='list-group'>"  **/
+						$counter=0;
 						foreach($activeElections["elections"] as $election)
 						{
 							if(is_file("election-data/{$election}.ballot"))
@@ -84,10 +85,11 @@
 									echo "</form>";
 									echo "<form action='procElectionClose.php' method='post'>";
 									echo "<div class='text-right'>";
-									echo "<button type='submit' class='btn btn-danger btn-md' name='selectedElection' value='{$electionBallot["title"]}'>Close {$electionBallot["title"]}</button>";
+									echo "<button type='submit' class='btn btn-danger btn-md' id='closeBtn{$counter}' name='selectedElection' value='{$electionBallot["title"]}'>Close {$electionBallot["title"]}</button>";
 									echo "</div></form></li>";
 								}
 							}
+							$counter++;
 						}
 									
 					} else {
