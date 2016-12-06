@@ -103,11 +103,14 @@
 									echo "<button type='submit' class='btn btn-primary btn-lg' name='selectedElection' value='{$electionBallot["title"]}'>Go to {$electionBallot["title"]} results page</button>";
 									echo "</form>";
 									echo "<form action='#' method='post'>";
-                                    echo "<div class='row'>";
 									echo "<div class='text-right'>";
 									echo "<button type='submit' class='btn btn-danger btn-md' id='closeBtn{$counter}' name='selectedElection' value='{$electionBallot["title"]}'>Certify {$electionBallot["title"]}</button>";
-                                    echo "<button type='submit' class='btn btn-danger btn-md' id='' name'' value=''>Results</button>";
-									echo "</div></div></form></li>";
+									echo "</div></form>";
+                                    echo "<form action='#' method='post'>";
+                                    echo "<div class='text-right'>";
+                                    echo "<button type='submit' class='btn btn-danger btn-md' name='selectedElection' value='{$electionBallot["title"]}'>Results</button>";
+                                    echo "</div></form>";
+                                    
 								}
 							}
 							$counter++;
