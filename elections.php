@@ -4,6 +4,15 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<head>
 		<title>MUVE</title>
+
+        <script>
+            function checkLoggedIn() {
+                var username = localStorage.getItem("username");
+                if (username === null) {
+                    window.location.href = "login.html";
+                }
+            }
+        </script>
 	</head>
 	<style>
 		body {
@@ -15,7 +24,7 @@
 			text-align: center;
 		}
 	</style>
-	<body>
+	<body onload="checkLoggedIn();">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="banner"></div>
 		<div>
 			<nav class="navbar navbar-fixed-top navbar-custom">
