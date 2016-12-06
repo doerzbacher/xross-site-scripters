@@ -12,6 +12,20 @@
                     closed.style = "display: none";
                 }
             }
+            function sendId() {
+                var form = document.createElement('form');
+                form.action = "elections.php";
+                form.method = "post";
+                form.style = "display: none;";
+                var input = document.createElement('input');
+                input.name = "userID";
+                input.type = "text";
+                input.readonly = true;
+                var username = localStorage.getItem('username');
+                input.value = username;
+                form.appendChild(input);
+                form.submit();
+            }
         </script>
 	</head>
 	<style>
@@ -31,7 +45,7 @@
 				<a class="navbar-brand" href="frontPage.html">MUVE</a>
 				<ul class="nav navbar-nav">
 					<li class="nav-item active">
-						<a class="nav-link" href="elections.php">Elections<span class="sr-only">(current)</span></a>
+						<a class="nav-link" onclick="sendId()">Elections<span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="candidates.html">Candidates</a>
