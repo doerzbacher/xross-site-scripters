@@ -76,11 +76,16 @@
 								$electionBallot = unserialize(file_get_contents("election-data/{$election}.ballot"));
 								if(is_array($electionBallot))
 								{
-									echo "<form action='procElectionRequest.php' method='post'>";
 									echo "<li class='list-group-item'>";
+									echo "<form action='procElectionRequest.php' method='post'>";
+									
 									echo "<p>{$electionBallot['electDescription']}</p>";
 									echo "<button type='submit' class='btn btn-primary btn-lg' name='selectedElection' value='{$electionBallot["title"]}'>Go to {$electionBallot["title"]} page</button>";
-									echo "</li> </form>";
+									echo "</form>";
+									echo "<form action='procElectionClose.php' method='post'>";
+									echo "<div class='text-right'>";
+									echo "<button type='submit' class='btn btn-danger btn-md' name='selectedElection' value='{$electionBallot["title"]}'>Close {$electionBallot["title"]}</button>";
+									echo "</div></form></li>";
 								}
 							}
 						}
