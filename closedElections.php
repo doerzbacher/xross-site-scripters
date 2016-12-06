@@ -79,6 +79,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="closedElections.php">Closed Elections</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="addEc.html">Add EC</a>
+                    </li>
 				</ul>
 			</nav>
 		</div>
