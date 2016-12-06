@@ -127,6 +127,7 @@
 									echo "<form action='procElectionRequest.php' method='post'>";
 									
 									echo "<p>{$electionBallot['electDescription']}</p>";
+									echo "<input type='text' style='display:none' name='userID' value='{$_POST["userID"]}' readonly></input>";
 									echo "<button type='submit' class='btn btn-primary btn-lg' name='selectedElection' value='{$electionBallot["title"]}'>Go to {$electionBallot["title"]} page</button>";
 									echo "</form>";
 									echo "<form action='procElectionClose.php' method='post'>";

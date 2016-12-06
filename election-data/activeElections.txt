@@ -1,1 +1,1 @@
-a:1:{s:9:"elections";a:0:{}}
+a:1:{s:9:"elections";a:3:{i:0;s:22:"Student-Body-President";i:1;s:23:"Resident-Halls-Ethernet";i:2;s:10:"New-Mascot";}}

@@ -50,34 +50,57 @@
 		
 		$electionTitle = str_replace(" ", "-", $_POST["selectedElection"]);
 		$electionContent = unserialize(file_get_contents("election-data/{$electionTitle}.ballot"));
+		echo serialize($_POST),"<br>";
 		
-		if(is_array($electionContent))
+		$fileContent = unserialize(file_get_contents("election-data/results/{$electionTitle}.ballotCollection"));
+		if(!is_array($fileContent))
 		{
-			if(!is_null($electionContent["title"]))
+			$arr = array();
+			$fileContent = array("completedBallots"=>$arr);
+		}	
+		$firstVote = 1;
+		foreach($fileContent["completedBallots"] as $completedBallotSer)
+		{
+			$completedBallot = unserialize($completedBallotSer);
+			if(strcmp($completedBallot["userID"], $_POST["userID"])==0)
 			{
-				echo "<p class='lead'>{$electionContent["title"]}</p><br>";
-				echo "<p>{$electionContent["electDescription"]}</p> </div>";
-				echo "<hr> <div class='row' id='polls'>";
-				echo "<form action='procBallot.php' method='post'><div class='row'><div class='col-md-4 col-md-offset-4'><label for='userID'>User ID</label><input type='text' class='form-control' id='userID' name='userID' readonly></div></div><br>";
-				for($raceIt=0; $raceIt<count($electionContent["entries"]); $raceIt++)
-				{
-					echo "<div class='col-md-3'><div class='panel panel-primary'> <div class='panel-heading'>";
-					echo "<h3 class='panel-title'>{$electionContent["entries"][$raceIt][0]}</h3> </div>";
-					echo "<div class='panel-body'>";
-					echo "<ul class='list-group'>";
-					for($entryIt=1; $entryIt<count($electionContent["entries"][$raceIt]); $entryIt++)
-					{
-						echo "<li class='list-group-item'><div class='radio'><label>";
-						$entryVal = $entryIt - 1;
-						echo "<input type='radio' name='candidates[{$raceIt}][]' value='{$entryVal}'>";
-						echo "{$electionContent["entries"][$raceIt][$entryIt]}";
-						echo "</label></div></li>";
-					}
-					echo "</ul></div></div></div>";
-				}
-				echo "<button type='submit' class='btn btn-default' name='selectedElection' value='{$electionContent["title"]}'>Submit</button>";
-				echo "</form></div><hr></div>";
+				$firstVote =0;
 			}
+		}
+		
+		if($firstVote)
+		{
+			if(is_array($electionContent))
+			{
+				if(!is_null($electionContent["title"]))
+				{
+					echo "<p class='lead'>{$electionContent["title"]}</p><br>";
+					echo "<p>{$electionContent["electDescription"]}</p> </div>";
+					echo "<hr> <div class='row' id='polls'>";
+					echo "<form action='procBallot.php' method='post'><div class='row'><div class='col-md-4 col-md-offset-4'><label for='userID'>User ID</label><input type='text' class='form-control' id='userID' name='userID' readonly></div></div><br>";
+					for($raceIt=0; $raceIt<count($electionContent["entries"]); $raceIt++)
+					{
+						echo "<div class='col-md-3'><div class='panel panel-primary'> <div class='panel-heading'>";
+						echo "<h3 class='panel-title'>{$electionContent["entries"][$raceIt][0]}</h3> </div>";
+						echo "<div class='panel-body'>";
+						echo "<ul class='list-group'>";
+						for($entryIt=1; $entryIt<count($electionContent["entries"][$raceIt]); $entryIt++)
+						{
+							echo "<li class='list-group-item'><div class='radio'><label>";
+							$entryVal = $entryIt - 1;
+							echo "<input type='radio' name='candidates[{$raceIt}][]' value='{$entryVal}'>";
+							echo "{$electionContent["entries"][$raceIt][$entryIt]}";
+							echo "</label></div></li>";
+						}
+						echo "</ul></div></div></div>";
+					}
+					echo "<button type='submit' class='btn btn-default' name='selectedElection' value='{$electionContent["title"]}'>Submit</button>";
+					echo "</form></div><hr></div>";
+				}
+			}
+		}else{
+			echo "<hr>You have already placed your ballot in this election, you may not vote twice<br></hr>";
+			echo "<hr><a class='btn btn-primary btn-lg' href='frontPage.html' role='button'>Return to the home page</a></hr>";
 		}
     ?>
 	</body>
