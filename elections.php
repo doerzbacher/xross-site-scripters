@@ -6,12 +6,32 @@
 		<title>MUVE</title>
 
         <script>
+            function hideButtons() {
+                var bool = true;
+                for (int i = 0; bool; i++) {
+                    try {
+                        var button = document.getElementById('closeBtn' + i);
+                        button.style = "display: none";
+                    }
+                    catch(err) {
+                        bool = false;
+                    }
+                }
+            }
+
             function checkLoggedIn() {
                 var username = localStorage.getItem("username");
                 if (username === null) {
                     window.location.href = "login.html";
                 }
+                else if (username === "HSO" || username === "EC") {
+
+                }
+                else {
+                    hideButtons();
+                }
             }
+
         </script>
 	</head>
 	<style>
