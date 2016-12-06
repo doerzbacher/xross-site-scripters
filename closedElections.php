@@ -105,7 +105,7 @@
 									echo "<form action='#' method='post'>";
 									echo "<div class='text-right'>";
 									echo "<button type='submit' class='btn btn-danger btn-md' id='closeBtn{$counter}' name='selectedElection' value='{$electionBallot["title"]}'>Certify {$electionBallot["title"]}</button>";
-									echo "</div></form>";
+									echo "</div></form><br>";
                                     echo "<form action='#' method='post'>";
                                     echo "<div class='text-right'>";
                                     echo "<button type='submit' class='btn btn-danger btn-md' name='selectedElection' value='{$electionBallot["title"]}'>Results</button>";
