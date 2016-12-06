@@ -50,7 +50,7 @@
 				{
 					$closedElections = array("elections"=>$elections);
 				}
-				$closedElections["elections"][count($closedElections["elections"])] = $electionTitle;
+				$closedElections["elections"][max(array_keys($closedElections["elections"]))+1] = $electionTitle;
 				
 				$closedElectionsFile = fopen("election-data/closedElections.txt","w") or die("asdf");
 				echo serialize($closedElections), "<br>";
