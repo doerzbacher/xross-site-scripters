@@ -112,8 +112,20 @@
 									echo $results["entries"][$raceIt][$entryIt];
 								echo "</div>";
 								echo "<div class='panel-footer'>";
+								echo "<div class='row'>";
+								echo "<div class='col-md-3'>";
 									echo $results["voteCount"][$raceIt][$entryIt-1]," votes";
+								echo  "</div>";
+								echo "<div class='col-md-3'>";
+									echo "<p>Major 0%</p>";
 								echo "</div>";
+								echo "<div class='col-md-3'>";
+									echo "<p>Class 0%</p>";
+								echo "</div>";
+								echo "<div class='col-md-3'>";
+									echo "<p>M/F 0%/0%</p>";
+								echo "</div>";
+								echo "</div></div>";
 							echo "</div>";
 						}
 						echo "</div>";
