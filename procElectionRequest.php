@@ -64,7 +64,7 @@
 					echo "<div class='col-md-3'> <div class='panel panel-primary'> <div class='panel-heading'>";
 					echo "<h3 class='panel-title'>{$electionContent["entries"][$raceIt][0]}</h3> </div>";
 					echo "<div class='panel-body'>";
-					echo "<ul class='list-group'><li class='list-group-item'><div class='radio'><label><input type='text' class='form-control' name='studentid' id='usernameBox' readonly></label></div></li>";
+					echo "<ul class='list-group'><li class='list-group-item'><div class='radio'><label><input type='text' class='form-control' name='studentid' id='usernameBox' readonly>User ID</label></div></li>";
 					for($entryIt=1; $entryIt<count($electionContent["entries"][$raceIt]); $entryIt++)
 					{
 						echo "<li class='list-group-item'><div class='radio'><label>";
