@@ -25,8 +25,12 @@
                 if (username === null) {
                     window.location.href = "login.html";
                 }
-                else if (username === "HSO" || username === "EC") {
-
+                else if (username === "HSO") {
+                    var closed = document.getElementById('closed');
+                    closed.style = "display: none";
+                }
+                else if (username === "EC") {
+                    
                 }
                 else {
                     hideButtons();
@@ -62,6 +66,9 @@
 					</li>
                     <li class="nav-item">
                         <a class="nav-link" href="electionCreate.html">Create Election</a>
+                    </li>
+                    <li class="nav-link" id="closed">
+                        <a class="nav-link" href="closedElections.php">Closed Election</a>
                     </li>
 				</ul>
 			</nav>
