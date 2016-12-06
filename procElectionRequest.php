@@ -62,9 +62,9 @@
 				for($raceIt=0; $raceIt<count($electionContent["entries"]); $raceIt++)
 				{
 					echo "<div class='col-md-3'> <div class='panel panel-primary'> <div class='panel-heading'>";
+                    echo "<label for='userID'>User ID</label><input type='text' class='form-control' id='userID' readonly>";
 					echo "<h3 class='panel-title'>{$electionContent["entries"][$raceIt][0]}</h3> </div>";
 					echo "<div class='panel-body'>";
-                    echo "<label for='userID'>User ID</label><input type='text' class='form-control' id='userID'>";
 					echo "<ul class='list-group'>";
 					for($entryIt=1; $entryIt<count($electionContent["entries"][$raceIt]); $entryIt++)
 					{
