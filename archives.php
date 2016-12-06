@@ -59,7 +59,7 @@
                         <a class="nav-link" href="electionCreate.html">Create Election</a>
                     </li>
                     <li class="nav-item" id="closed">
-                        <a class="nav-link" href="closedElections.html">Closed Elections</a>
+                        <a class="nav-link" href="closedElections.php">Closed Elections</a>
                     </li>
                     <li class="nav-item" id="EC">
                         <a class="nav-link" href="addEc.html">Add EC</a>
