@@ -62,7 +62,7 @@
                         <a class="nav-link" href="closedElections.php">Closed Elections</a>
                     </li>
                     <li class="nav-item" id="EC">
-                        <a class="nav-link" href="addEc.html">Add EC</a>
+                        <a class="nav-link" href="addEc.php">Add EC</a>
                     </li>
 				</ul>
 			</nav>

@@ -170,13 +170,13 @@
                         <a class="nav-link" href="closedElections.php">Closed Elections</a>
                     </li>
                     <li class="nav-item" id="EC">
-                        <a class="nav-link" href="addEc.html">Add EC</a>
+                        <a class="nav-link" href="addEc.php">Add EC</a>
                     </li>
                 </ul>
             </nav>
         </div>
         <div class="container">
-            <form action="procElectionCreation.php" method="post" id="form1">
+            <form action="#" method="post" id="form1">
                 <div class="top-words">
                     <h1>Morgantown University Voting Environment</h1>
                 </div>
