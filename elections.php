@@ -25,9 +25,11 @@
                 if (username === null) {
                     window.location.href = "login.html";
                 }
-                else if (username === "HSO") {
+                else if (username != "HSO") {
                     var closed = document.getElementById('closed');
+                    var EC = document.getElementById('EC');
                     closed.style = "display: none";
+                    EC.style = "display: none";
                 }
                 else if (username === "EC") {
                     
@@ -83,6 +85,9 @@
                     </li>
                     <li class="nav-link" id="closed">
                         <a class="nav-link" href="closedElections.php">Closed Election</a>
+                    </li>
+                    <li class="nav-item" id="EC">
+                        <a class="nav-link" href="addEc.html">Add EC</a>
                     </li>
 				</ul>
 			</nav>

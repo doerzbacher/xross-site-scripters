@@ -9,7 +9,9 @@
                 var a = localStorage.getItem("username");
                 if (a != "HSO") {
                     var closed = document.getElementById('closed');
+                    var EC = document.getElementById('EC');
                     closed.style = "display: none";
+                    EC.style = "display: none";
                 }
             }
             function sendId() {
@@ -57,7 +59,10 @@
                         <a class="nav-link" href="electionCreate.html">Create Election</a>
                     </li>
                     <li class="nav-item" id="closed">
-                        <a class="nav-link" href="electionCreate.html">Closed Elections</a>
+                        <a class="nav-link" href="closedElections.html">Closed Elections</a>
+                    </li>
+                    <li class="nav-item" id="EC">
+                        <a class="nav-link" href="addEc.html">Add EC</a>
                     </li>
 				</ul>
 			</nav>
