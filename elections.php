@@ -81,6 +81,10 @@
 			<hr>
 			
 			<?php
+			
+				echo serialize($_POST),"<br>";
+				echo "<br><br>User ID: ",$_POST["userID"],"<br><br>";
+			
 				if(is_file("election-data/activeElections.txt"))
 				{
 					$activeElections = unserialize(file_get_contents("election-data/activeElections.txt"));
