@@ -8,7 +8,8 @@
         <script>
             function hideButtons() {
                 var bool = true;
-                for (int i = 0; bool; i++) {
+                var i;
+                for (i = 0; bool; i++) {
                     try {
                         var button = document.getElementById('closeBtn' + i);
                         button.style = "display: none";
