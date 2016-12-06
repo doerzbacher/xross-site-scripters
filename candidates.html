@@ -28,7 +28,7 @@
 						<a class="nav-link" href="candidates.html">Candidates</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Archives</a>
+						<a class="nav-link" href="archives.php">Archives</a>
 					</li>
                     <li class="nav-item">
                         <a class="nav-link" href="electionCreate.html">Create Election</a>
