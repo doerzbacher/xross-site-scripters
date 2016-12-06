@@ -4,6 +4,15 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<head>
 		<title>MUVE Candidates</title>
+        <script>
+            function loggedInCheck() {
+                var a = localStorage.getItem("username");
+                if (a != "HSO") {
+                    var closed = document.getElementById('closed');
+                    closed.style = "display: none";
+                }
+            }
+        </script>
 	</head>
 	<style>
 		body {
@@ -32,6 +41,9 @@
 					</li>
                     <li class="nav-item">
                         <a class="nav-link" href="electionCreate.html">Create Election</a>
+                    </li>
+                    <li class="nav-bar" id="closed">
+                        <a class="nav-link" href="closedElections.php">Closed Elections</a>
                     </li>
 				</ul>
 			</nav>
