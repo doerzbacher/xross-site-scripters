@@ -97,18 +97,17 @@
 								if(is_array($electionBallot))
 								{
 									echo "<li class='list-group-item'>";
-									echo "<form action='procElectionCountRequest.php' method='post'>";
-									
+									echo "<form action='procElectionResults.php' method='post'>";
 									echo "<p>{$electionBallot['electDescription']}</p>";
-									echo "<button type='submit' class='btn btn-primary btn-lg' name='selectedElection' value='{$electionBallot["title"]}'>Go to {$electionBallot["title"]} results page</button>";
+									echo "<button type='submit' class='btn btn-primary btn-lg' name='selectedElection' value='{$electionBallot["title"]}'>{$electionBallot["title"]} results page</button>";
 									echo "</form>";
-									echo "<form action='#' method='post'>";
+									echo "<form action='procElectionCountRequest.php' method='post'>";
 									echo "<div class='text-right'>";
-									echo "<button type='submit' class='btn btn-danger btn-md' id='closeBtn{$counter}' name='selectedElection' value='{$electionBallot["title"]}'>Certify {$electionBallot["title"]}</button>";
+									echo "<button type='submit' class='btn btn-danger btn-md' id='closeBtn{$counter}' name='selectedElection' value='{$electionBallot["title"]}'>Count/Recount ballots</button>";
 									echo "</div></form><br>";
-                                    echo "<form action='#' method='post'>";
+                                    echo "<form action='procElectionCertify.php' method='post'>";
                                     echo "<div class='text-right'>";
-                                    echo "<button type='submit' class='btn btn-danger btn-md' name='selectedElection' value='{$electionBallot["title"]}'>Results</button>";
+                                    echo "<button type='submit' class='btn btn-danger btn-md' name='selectedElection' value='{$electionBallot["title"]}'>Certify</button>";
                                     echo "</div></form>";
                                     
 								}
