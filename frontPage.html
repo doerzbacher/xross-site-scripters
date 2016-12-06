@@ -12,8 +12,6 @@
                 var ul = document.getElementById('navUl');
                 if (a != null) {
                     var username = document.createElement('span');
-                    var elecBut = document.getElementById('userElections');
-                    elecBut.value = a;
                     username.className = "nav navbar-text";
                     username.innerHTML = "Hello, " + a;
                     username.style = "color: #ffffff";
@@ -44,7 +42,6 @@
                     closed.style = "display: none";
                 }
             }
-
             function sendId() {
                 var form = document.createElement('form');
                 form.action = "elections.php";
