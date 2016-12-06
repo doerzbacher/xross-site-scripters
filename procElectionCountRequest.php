@@ -67,6 +67,12 @@
 			}
 		}
 		
+		echo serialize($results),"<br>";
+		
+		$resultsFile = fopen("election-data/results/{$electionTitle}.results","w");
+		fwrite($resultsFile, serialize($results));
+		fclose($resultsFile);
+		
     ?>
 	</body>
 </html>
