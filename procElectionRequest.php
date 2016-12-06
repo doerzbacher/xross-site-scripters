@@ -61,8 +61,7 @@
 				echo "<form action='procBallot.php' method='post'>";
 				for($raceIt=0; $raceIt<count($electionContent["entries"]); $raceIt++)
 				{
-					echo "<div class='col-md-3'> <div class='panel panel-primary'> <div class='panel-heading'>";
-                    echo "<label for='userID'>User ID</label><input type='text' class='form-control' id='userID' readonly>";
+					echo "<div class='col-md-3'><label for='userID'>User ID</label><input type='text' class='form-control' id='userID' readonly> <div class='panel panel-primary'> <div class='panel-heading'>";
 					echo "<h3 class='panel-title'>{$electionContent["entries"][$raceIt][0]}</h3> </div>";
 					echo "<div class='panel-body'>";
 					echo "<ul class='list-group'>";
