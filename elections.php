@@ -69,7 +69,7 @@
 		<div class="container">
 			<div class="top-words">
 				<h1>Morgantown University Voting Environment</h1>
-				<p class="lead">Put something relevant here.<br> More relevant than what is currently here.</p>
+				<p class="lead">Current Elections</p>
 			</div>
 			<hr>
 			
