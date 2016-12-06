@@ -22,7 +22,9 @@
 		$electionTitle = str_replace(" ", "-", $_POST["selectedElection"]);
 		$electionBallot = unserialize(file_get_contents("election-data/{$electionTitle}.ballot"));
 		$electionBallotCollection = unserialize(file_get_contents("election-data/results/{$electionTitle}.ballotCollection"));
+		$results = unserialize(file_get_contents("election-data/{$electionTitle}.ballot"));
 		
+		echo "<br><br><br>";
 		echo $electionTitle,"<br><br>";
 		echo serialize($electionBallot), "<br><br>";
 		echo serialize($electionBallotCollection), "<br><br>";
@@ -31,20 +33,36 @@
 		{
 			if(!is_null($electionBallot["title"]))
 			{
+				if(is_null($results["voteCount"]))
+				{
+					array_push($results["voteCount"]=array(array(),array(),array(),array(),array(),array()));
+				}
+				echo serialize($results),"<br><br>";
+					
 				for($raceIt=0; $raceIt<=max(array_keys($electionBallot["entries"])); $raceIt++)
 				{
-					for($entryIt=1; $entryIt<=max(array_keys($electionBallot["entries"][$raceIt])); $entryIt++)
+					echo "Race num: ",$raceIt,"<br>";
+					foreach($electionBallotCollection["completedBallots"] as $ballotSer)
 					{
-						echo $electionBallot["entries"][$raceIt][$entryIt],", ";
-						foreach($electionBallotCollection["completedBallots"] as $ballotSer)
+						//	echo $ballot["candidates"][$raceIt][$entryIt],"<br>";
+						//echo serialize($ballot),"<br>";
+						$ballot = unserialize($ballotSer);
+						//echo serialize($ballot["candidates"]),"<br>";
+						if(!is_null($ballot["candidates"][$raceIt][0]))
 						{
-							//	echo $ballot["candidates"][$raceIt][$entryIt],"<br>";
-							//echo serialize($ballot),"<br>";
-							$ballot = unserialize($ballotSer);
-							//echo serialize($ballot["candidates"]),"<br>";
-							echo $ballot["candidates"][$raceIt][$entryIt-1],"<br>";
+							if(is_null($results["voteCount"][$raceIt][$ballot["candidates"][$raceIt][0]]))
+							{
+								$results["voteCount"][$raceIt][$ballot["candidates"][$raceIt][0]] = 0;
+							}
+							$results["voteCount"][$raceIt][$ballot["candidates"][$raceIt][0]]++;
+							echo $ballot["candidates"][$raceIt][0],"<br>";
+							//echo serialize($results),"<br>";
+						}else
+						{
+							echo "Entry Null<br>";
 						}
 					}
+					echo "<br>";
 				}
 			}
 		}
