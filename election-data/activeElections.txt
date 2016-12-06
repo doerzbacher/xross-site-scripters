@@ -1,1 +1,1 @@
-a:1:{s:9:"elections";a:1:{i:4;s:7:"as;dfsd";}}
+a:1:{s:9:"elections";a:0:{}}

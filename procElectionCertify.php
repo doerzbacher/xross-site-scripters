@@ -46,12 +46,12 @@
 				fwrite($file, serialize($closedElections));
 				fclose($file);
 				
-				$certifiedElections = unserialize(file_get_contents("election-data/closedElections.txt"));
+				$certifiedElections = unserialize(file_get_contents("election-data/certifiedElections.txt"));
 				if(!is_array($certifiedElections))
 				{
 					$certifiedElections = array("elections"=>$elections);
 				}
-				$certifiedElections["elections"][count($certifiedElections["elections"])] = $electionTitle;
+				$certifiedElections["elections"][max(array_keys($certifiedElections["elections"]))+1] = $electionTitle;
 				
 				$certifiedElectionsFile = fopen("election-data/certifiedElections.txt","w") or die("asdf");
 				echo serialize($certifiedElections), "<br>";
