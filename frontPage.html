@@ -36,6 +36,11 @@
                     login.innerHTML = "Login";
                     list.appendChild(login);
                 }
+
+                if (a != "HSO") {
+                    var closed = document.getElementById('closed');
+                    closed.style = "display: none";
+                }
             }
         </script>
     </head>
@@ -66,6 +71,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="electionCreate.html">Create Election</a>
+                    </li>
+                    <li class="nav-item" id="closed">
+                        <a class="nav-link" href="closedElections.php">Closed Elections</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right" style="padding-right: 5rem" id="navUl">
