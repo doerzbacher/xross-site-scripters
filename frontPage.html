@@ -51,6 +51,7 @@
                 form.method = "post";
                 form.style = "display: none;";
                 var input = document.createElement('input');
+                input.name = "userID";
                 input.type = "text";
                 input.readonly = true;
                 var username = localStorage.getItem('username');
