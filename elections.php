@@ -31,7 +31,7 @@
                     closed.style = "display: none";
                     EC.style = "display: none";
                 }
-                else if (username === "EC") {
+                else if (username === "EC" || username === "HSO") {
                     
                 }
                 else {
