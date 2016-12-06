@@ -72,23 +72,46 @@
 				<h1>Morgantown University Voting Environment</h1>
 				<p class="lead">Get involved.  Make a difference.<br>Make your voice heard and vote for what you care about.</p>
 			</div>
-			<hr>
-			<div class="row" id="polls">
-				<div class="col-md-4">
-					<h2>Finished Elections</h2>
-					<p></p>
+			<?php
+			
+				if(is_file("election-data/certifiedElections.txt"))
+				{
+					$certifiedElections = unserialize(file_get_contents("election-data/certifiedElections.txt"));
+					echo serialize($certifiedElections),"<br>";
 					
-					
-					/** REPLACE THESE BUTTONS BELOW WITH PHP**/
-					 
-					 
-					<p><a class="btn btn-primary btn-lg" href="#" role="button">Election 1 &raquo;</a></p>
-					<p><a class="btn btn-primary btn-lg" href="#" role="button">Election 2 &raquo;</a></p>
-					<p><a class="btn btn-primary btn-lg" href="#" role="button">Election C &raquo;</a></p>
-					
-					
-				</div>
-			</div><!--polls-->
+					if(is_array($certifiedElections))
+					{
+						
+/**						echo "<div class='col-md-3'>"
+						echo "<div class='panel panel-primary'>"
+						echo "<div class='panel-body'>"
+						echo "<ul class='list-group'>"  **/
+						$counter=0;
+						foreach($certifiedElections["elections"] as $election)
+						{
+							if(is_file("election-data/{$election}.ballot"))
+							{
+								$electionBallot = unserialize(file_get_contents("election-data/{$election}.ballot"));
+								if(is_array($electionBallot))
+								{
+									echo "<li class='list-group-item'>";
+									echo "<form action='procElectionResults.php' method='post'>";
+									echo "<p>{$electionBallot['electDescription']}</p>";
+									echo "<button type='submit' class='btn btn-primary btn-lg' name='selectedElection' value='{$electionBallot["title"]}'>{$electionBallot["title"]} results page</button>";
+									echo "</form>";
+									echo "</li>";
+								}
+							}
+							$counter++;
+						}
+									
+					} else {
+						echo "<p>There are currently no active elections.</p><br>";
+					}
+				} else {
+					echo "<p>There are currently no active elections.</p><br>";
+				}
+			?>
 			<hr>
 		</div><!-- /.container -->
 	</body>
