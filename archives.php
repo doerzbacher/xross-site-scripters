@@ -34,11 +34,6 @@
                         <a class="nav-link" href="electionCreate.html">Create Election</a>
                     </li>
 				</ul>
-                <ul class="nav navbar-nav navbar-right" style="padding-right: 5rem">
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
-                    </li>
-                </ul>
 			</nav>
 		</div>
 		<div class="container">
