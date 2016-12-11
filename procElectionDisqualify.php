@@ -79,8 +79,9 @@
 							echo "{$electionContent["entries"][$raceIt][$completedBallot["candidates"][$raceIt][0]+1]}";
 							//echo "</label></div></li>";
 						//}
-						echo "</ul></div></div></div>";
+						echo "</ul></div></div>";
 					}
+					echo "</div>";
 					echo "<button type='submit' class='btn btn-danger' name='selectedElection' value='{$electionContent["title"]}'>Disqualify Vote</button>";
 					echo "</form></div><hr></div>";
 		}

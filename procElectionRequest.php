@@ -89,7 +89,12 @@
 							echo "<li class='list-group-item'><div class='radio'><label>";
 							$entryVal = $entryIt - 1;
 							echo "<input type='radio' name='candidates[{$raceIt}][]' value='{$entryVal}'>";
+							if(strcmp($electionContent["entries"][$raceIt][$entryIt], "")==0)
+							{
+								echo "<input type='text' class='form-control' placeholder='Write in...'>";
+							}else{
 							echo "{$electionContent["entries"][$raceIt][$entryIt]}";
+							}
 							echo "</label></div></li>";
 						}
 						echo "</ul></div></div></div>";
